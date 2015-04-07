@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: coursee
+        psr4_prefix: coursee
+        src_path: app
