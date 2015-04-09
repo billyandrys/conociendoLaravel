@@ -1,6 +1,17 @@
 <?php namespace coursee\Http\Controllers;
 
+use coursee\User;
+
 class UsersController extends Controller {
+
+
+	public function getOrm()
+	{
+		$result = User::get();
+		dd($result->profile->age);
+
+	}
+
 
 	public function getIndex()
 	{
@@ -16,7 +27,7 @@ class UsersController extends Controller {
 		->get();
 
 		//dd($resul->first_name);
-		return $resul;
+		//return $resul;
 	}
 
 }	
