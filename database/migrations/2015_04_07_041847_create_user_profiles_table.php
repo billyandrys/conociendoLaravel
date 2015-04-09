@@ -18,6 +18,7 @@ class CreateUserProfilesTable extends Migration {
 			$table->string('bio')->nullable();
 			$table->string('twitter')->nullable();
 			$table->string('website')->nullable();
+			$table->date('birthdate')->nullable();
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')
 			->references('id')
