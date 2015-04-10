@@ -26,3 +26,10 @@ Route::get('example', function(){
 	$user = 'BillyAndrys';
 	return view('template.template', compact('user'));
 });
+
+Route::group(['prefix'=>'admin', 'namespace' => 'coursee\Http\Controllers\admin'], function (){
+
+	Route::resource('users', 'UsersController');
+
+});
+
