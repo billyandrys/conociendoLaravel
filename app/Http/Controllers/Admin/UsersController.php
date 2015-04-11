@@ -4,7 +4,10 @@ use coursee\Http\Requests;
 use coursee\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use coursee\Http\Requests\CreateUserRequest;
 use coursee\User;
+
 
 class UsersController extends Controller {
 
@@ -43,11 +46,19 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store( CreateUserRequest $request)
 	{
-		dd($this->request->all());		
-	}
+		
 
+		$data = $this->request->all();
+			
+
+		$user = User::create($data);
+		//$user->save();
+
+		return redirect()->route('admin.users.index');
+
+	}
 	/**
 	 * Display the specified resource.
 	 *
@@ -67,7 +78,9 @@ class UsersController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$user = User::findOrFail($id);
+
+		return view('admin.users.edit', compact('user'));
 	}
 
 	/**
@@ -78,7 +91,10 @@ class UsersController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$user = User::findOrFail($id);
+		$user->fill($this->request->all());
+		$user->save();
+		return redirect()->route('admin.users.index');
 	}
 
 	/**

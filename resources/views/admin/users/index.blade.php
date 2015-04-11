@@ -10,30 +10,8 @@
 				<div class="panel-body">
 
 				<a class="btn btn-info" href="{{ route('admin.users.create') }}" role="button">Crear usuario</a>
-
-					<table class="table">
-  				<tr>
-  						<th>#</th>
-  						<th>Nombre</th>
-  						<th>Email</th>
-  						<th>Acciones</th>
-
-  					</tr>
-  					
-  					@foreach($users as $user)
-  					<tr>
-  						<th>{{ $user->id }}</th>
-  						<th>{{ $user->full_name }}</th>
-  						<th>{{ $user->email }}</th>
-  						<th>
-  							<a href="">Editar</a>
-  							<a href="">Eliminar</a>
-  						</th>
-  	
-  					</tr>
-  					@endforeach
-					  					
-					</table>
+         			 @include('admin.users.partials.table')
+					
 					{!! $users->render() !!}
 				</div>
 			</div>

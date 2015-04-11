@@ -1,40 +1,48 @@
-@extends('app')
+<html>
+	<head>
+		<title>Laravel</title>
+		
+		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
-@section('content')
-<div class="container">
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="panel panel-default">
-				<div class="panel-heading">Home</div>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				color: #B0BEC5;
+				display: table;
+				font-weight: 100;
+				font-family: 'Lato';
+			}
 
-				<div class="panel-body">
-					{ !! Form::open(['route' => 'admin.users.store', 'method' => 'POST' ]) !! }
+			.container {
+				text-align: center;
+				display: table-cell;
+				vertical-align: middle;
+			}
 
-					<div class="form-group">
-						    <label for="exampleInputEmail1">Email address</label>
-						    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-						  </div>
-						  <div class="form-group">
-						    <label for="exampleInputPassword1">Password</label>
-						    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-						  </div>
-						  <div class="form-group">
-						    <label for="exampleInputFile">File input</label>
-						    <input type="file" id="exampleInputFile">
-						    <p class="help-block">Example block-level help text here.</p>
-						  </div>
-						  <div class="checkbox">
-						    <label>
-						      <input type="checkbox"> Check me out
-						    </label>
-						  </div>
-						  <button type="submit" class="btn btn-default">Submit</button>
-					
+			.content {
+				text-align: center;
+				display: inline-block;
+			}
 
-					{ !! Form::close()!!}
-				</div>
-			</div>
+			.title {
+				font-size: 96px;
+				margin-bottom: 40px;
+			}
+
+			.quote {
+				font-size: 24px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="content">
+				<div class="title">BillyAndrys</div>
+							
 		</div>
-	</div>
-</div>
-@endsection
+	</body>
+</html>
+
