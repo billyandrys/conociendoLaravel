@@ -1,11 +1,12 @@
-<?php namespace coursee\Http\Controllers;
+<?php namespace coursee\Http\Controllers\Admin;
 
 use coursee\Http\Requests;
 use coursee\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use coursee\User;
 
-class AdminUsersController extends Controller {
+class UsersController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -14,7 +15,10 @@ class AdminUsersController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$users = User::paginate();
+
+		return view('admin.users.index', compact('users'));
+		dd($users);
 	}
 
 	/**
