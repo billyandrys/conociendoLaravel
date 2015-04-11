@@ -12,13 +12,20 @@ class UsersController extends Controller {
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
+
 	 */
+
+	protected $request;
+
+	public function __construct(Request $request)
+	{
+		$this->request = $request;
+	}
 	public function index()
 	{
 		$users = User::paginate();
 
 		return view('admin.users.index', compact('users'));
-		dd($users);
 	}
 
 	/**
@@ -28,7 +35,7 @@ class UsersController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('admin.users.create');
 	}
 
 	/**
@@ -38,7 +45,7 @@ class UsersController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		dd($this->request->all());		
 	}
 
 	/**

@@ -8,8 +8,11 @@
 				<div class="panel-heading">Users</div>
 
 				<div class="panel-body">
+
+				<a class="btn btn-info" href="{{ route('admin.users.create') }}" role="button">Crear usuario</a>
+
 					<table class="table">
-  ...				<tr>
+  				<tr>
   						<th>#</th>
   						<th>Nombre</th>
   						<th>Email</th>
