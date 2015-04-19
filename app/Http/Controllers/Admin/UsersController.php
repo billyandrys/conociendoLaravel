@@ -6,6 +6,8 @@ use coursee\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use coursee\Http\Requests\CreateUserRequest;
+use coursee\Http\Requests\EditUserRequest;
+use Illuminate\Support\Facades\Session;
 use coursee\User;
 
 
@@ -15,10 +17,10 @@ class UsersController extends Controller {
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
-
 	 */
 
 	protected $request;
+	
 
 	public function __construct(Request $request)
 	{
@@ -27,7 +29,6 @@ class UsersController extends Controller {
 	public function index()
 	{
 		$users = User::paginate();
-
 		return view('admin.users.index', compact('users'));
 	}
 
@@ -36,6 +37,7 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
+
 	public function create()
 	{
 		return view('admin.users.create');
@@ -54,7 +56,7 @@ class UsersController extends Controller {
 			
 
 		$user = User::create($data);
-		//$user->save();
+		
 
 		return redirect()->route('admin.users.index');
 
@@ -89,7 +91,7 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, EditUserRequest $request)
 	{
 		$user = User::findOrFail($id);
 		$user->fill($this->request->all());
@@ -105,7 +107,13 @@ class UsersController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+			User::destroy($id);	
+
+			Session::flash('message', 'el registro fue elimnado');
+
+			return redirect()->route('admin.users.index');
+
+
 	}
 
 }

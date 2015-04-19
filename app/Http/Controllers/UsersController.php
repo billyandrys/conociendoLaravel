@@ -27,7 +27,7 @@ class UsersController extends Controller {
 		->get();
 
 		//dd($resul->first_name);
-		//return $resul;
+		return $resul;
 	}
 
 }	

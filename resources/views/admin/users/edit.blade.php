@@ -8,14 +8,19 @@
 				
 
 					<div class="panel-body">
+					@include('admin.users.partials.messages')
 						{!! Form::model($user, ['route' => ['admin.users.update', $user], 'method' => 'PUT' ]) !!}
 						@include('admin.users.partials.fields')
 					
 					
 						<button type="submit" class="btn btn-default">Actualizar</button>
 						{!! Form::close() !!}
+
+					
 					</div>
+
 			</div>
+			@include('admin.users.partials.delete')	
 		</div>
 	</div>
 </div>

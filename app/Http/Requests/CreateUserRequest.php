@@ -1,6 +1,7 @@
 <?php namespace coursee\Http\Requests;
 
 use coursee\Http\Requests\Request;
+use Iluminate\Routing\Route;
 
 class CreateUserRequest extends Request {
 
@@ -22,16 +23,13 @@ class CreateUserRequest extends Request {
 	public function rules()
 	{
 		return [
-		
+
 				'first_name' => 'required',
 				'last_name'=> 'required',
-				'email'=> 'required',
+				'email'=> 'required|unique:users,email',
 				'password'=> 'required',
 				'type'=> 'required'
-
-			
-
-		
+				
 	   ];
 	}
 

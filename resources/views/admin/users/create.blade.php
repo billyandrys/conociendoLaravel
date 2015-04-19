@@ -10,8 +10,6 @@
 							@include('admin.users.partials.messages')
 							{!! Form::open(['route' => 'admin.users.store', 'method' => 'POST' ]) !!}
 							@include('admin.users.partials.fields')
-					
-					
 							<button type="submit" class="btn btn-default">Submit</button>
 							{!! Form::close() !!}
 						</div>

@@ -8,13 +8,13 @@
   					</tr>
   					
   					@foreach($users as $user)
-  					<tr>
+  					<tr data-id="{{ $user->id }}">
   						<th>{{ $user->id }}</th>
   						<th>{{ $user->full_name }}</th>
   						<th>{{ $user->email }}</th>
   						<th>
   							<a href="{{ route('admin.users.edit', $user) }}">Editar</a>
-  							<a href="">Eliminar</a>
+  							<a href="" class="btn-delete">Eliminar</a>
   						</th>
   	
   					</tr>

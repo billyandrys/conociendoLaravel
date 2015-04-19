@@ -7,6 +7,11 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Users</div>
 
+				@if (Session::has('message'))
+
+				<p class="alert alert-success">{{ Session::get('message') }}</p>
+				@endif
+
 				<div class="panel-body">
 
 				<a class="btn btn-info" href="{{ route('admin.users.create') }}" role="button">Crear usuario</a>
@@ -18,4 +23,16 @@
 		</div>
 	</div>
 </div>
-@endsection	
+@endsection
+
+@section('scripts')
+<script>
+	$(document).ready(function () {
+		$('.btn-delete')click(function () {
+
+			var row = $(this).parents('tr');
+		})
+	});
+</script>
+
+@endsection
