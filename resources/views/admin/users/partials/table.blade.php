@@ -14,7 +14,7 @@
   						<th>{{ $user->email }}</th>
   						<th>
   							<a href="{{ route('admin.users.edit', $user) }}">Editar</a>
-  							<a href="" class="btn-delete">Eliminar</a>
+  							<a href="#!" class="btn-delete">Eliminar</a>
   						</th>
   	
   					</tr>

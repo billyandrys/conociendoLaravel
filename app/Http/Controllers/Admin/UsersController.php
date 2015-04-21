@@ -107,11 +107,31 @@ class UsersController extends Controller {
 	 */
 	public function destroy($id)
 	{
-			User::destroy($id);	
+			
+			User::destroy($id);
 
-			Session::flash('message', 'el registro fue elimnado');
+			$message = 'registro fuel eliminado';
 
-			return redirect()->route('admin.users.index');
+			if($this->request->ajax()){
+				
+				return response()->json([
+
+					'id' => $id,
+					'message' => $message
+
+
+			]);
+	}
+			
+
+
+			
+
+				
+
+			Session::flash('message'. $message);
+
+			//return redirect()->route('admin.users.index');
 
 
 	}
